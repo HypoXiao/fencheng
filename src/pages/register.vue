@@ -1,6 +1,6 @@
 <template>
   <div class="register">
-    <h3 class="title">登记但尚未购卡用户</h3>
+    <h3 class="title">已在你名下登记尚未购卡用户</h3>
       <Table :loading="loading" :columns="columns" :data="list" width="1000" border ></Table>
       <Page v-if="total > 0" class="page" :total="total" :page-size="page.pageSize" @on-change="change" />
   </div>
@@ -21,6 +21,11 @@ export default {
         {
           title: "用户手机号",
           key: "phonenumber",
+          align: 'center'
+        },
+         {
+          title: "登记时间",
+          key: "awardTime",
           align: 'center'
         }
       ],
@@ -58,6 +63,7 @@ export default {
 }
 .page {
   margin-top: 20px;
+  width: 1000px;
   text-align: center;
 }
 </style>

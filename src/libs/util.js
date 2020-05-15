@@ -1,19 +1,3 @@
-export function turnObj(arr) {
-  const map = {}
-  arr.forEach(v => {
-    map[v.type] = v.name
-  })
-  return map
-}
-
-export function turnObj2(arr) {
-  const map = {}
-  arr.forEach(v => {
-    map[v.type] = v
-  })
-  return map
-}
-
 export function getCookie() {
   let cookie = document.cookie.replace(/ /g, '')
   let arr = cookie.split(';')
@@ -23,6 +7,10 @@ export function getCookie() {
     obj[arrV[0]] = decodeURIComponent(arrV[1])
   })
   return obj
+}
+
+export function changeFee(num) {
+  return (Math.floor((num || 0)) / 100).toFixed(2)
 }
 
 export function isNum(str) {

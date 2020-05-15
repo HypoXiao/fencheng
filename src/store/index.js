@@ -1,6 +1,6 @@
 export default {
   state: {
-    title: '合伙人推广实时情况系统',
+    title: '音书合伙人推广实时情况系统',
     user: '',
   },
   mutations: {

@@ -25,7 +25,7 @@ export default {
       menu: [
         {
           name: 'statistics',
-          title: '推广用户数和今日金额统计'
+          title: '推广用户数和分成金额统计'
         },
         // {
         //   name: 'record',
@@ -33,7 +33,7 @@ export default {
         // },
         {
           name: 'register',
-          title: '登记但尚未购卡用户'
+          title: '已在你名下登记尚未购卡用户'
         }
       ]
     }
@@ -75,5 +75,7 @@ export default {
 .index-content {
   flex: 1;
   padding: 20px;
+  overflow: scroll;
+  height: 100%;
 }
 </style>
