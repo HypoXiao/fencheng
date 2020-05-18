@@ -3,12 +3,12 @@
       <Tabs :value="tabValue" :animated="false" @on-click="changeTab" type="card">
         
         <TabPane label="本月推广用户购卡记录" name="now">
-          <Table :loading="nowLoading" :columns="nowColumns" :data="nowList" width="1000" border ></Table>
+          <Table :loading="nowLoading" :columns="nowColumns" :data="nowList" border ></Table>
           <Page v-if="nowTotal > 0" class="page" :total="nowTotal" :page-size="nowPage.pageSize" @on-change="changePage" />
         </TabPane>
 
         <TabPane label="过往购卡用户情况" name="old">
-          <Table :loading="oldLoading" :columns="oldColumns" :data="oldList" width="1000" border ></Table>
+          <Table :loading="oldLoading" :columns="oldColumns" :data="oldList" border ></Table>
           <Page v-if="oldTotal > 0" class="page" :total="oldTotal" :page-size="oldPage.pageSize" @on-change="changePage" />
         </TabPane>
     </Tabs>
@@ -119,7 +119,6 @@ export default {
             val.promoteFee = changeFee(val.promoteFee);
           });
           this.nowList = list;
-          console.log('nowList', this.nowList)
         })
         .catch(err => {
           this.nowLoading = false;
@@ -139,7 +138,6 @@ export default {
             val.promoteFee = changeFee(val.promoteFee);
           });
           this.oldList = list;
-          console.log('oldList', this.oldList)
         })
         .catch(err => {
           this.oldLoading = false;
@@ -196,12 +194,12 @@ export default {
 <style scoped>
 .record {
   margin-top: 25px;
+  width: 1100px;
 }
 .record-title {
   margin-bottom: 20px;
 }
 .page {
-  width: 1000px;
   margin-top: 20px;
   text-align: center;
 }

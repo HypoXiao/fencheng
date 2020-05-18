@@ -34,7 +34,7 @@ module.exports = {
 
     proxyTable: {
       '/pds': {
-        target: 'http://192.168.0.100:3000/pds',
+        target: 'http://192.168.0.102:3000/pds',
         pathRewrite: {
           '^/pds': ''
         }

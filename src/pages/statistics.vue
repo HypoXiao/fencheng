@@ -1,22 +1,37 @@
 <template>
   <div class="statistics">
-    <Card class="card" style="width: 1000px;">
+    <Card class="card" style="width: 1100px;">
       <div class="card-list">
         <div class="card-item">
           <h2 class="card-num">{{statistics.todayPromoteUser}}</h2>
           <h3 class="card-title">今日推广用户数</h3>
         </div>
+        <!-- xx -->
         <div class="card-item">
-          <h2 class="card-num" style="color: #00cc66;"><span class="yan">￥</span>{{statistics.todayPromoteFee}}</h2>
+          <h2 class="card-num" style="color: #00cc66;">{{statistics.todayBuyUser}}</h2>
+          <h3 class="card-title">今日购卡用户数</h3>
+        </div>
+        <div class="card-item">
+          <h2 class="card-num" style="color: #ff9900;"><span class="yan">￥</span>{{statistics.todayPromoteFee}}</h2>
           <h3 class="card-title">今日推广分成金额</h3>
         </div>
         <div class="card-item">
-          <h2 class="card-num" style="color: #ff9900;">{{statistics.addUpPromoteUser}}</h2>
+          <h2 class="card-num">{{statistics.addUpPromoteUser}}</h2>
           <h3 class="card-title">总推广用户数</h3>
         </div>
+        <!-- xx -->
         <div class="card-item">
-          <h2 class="card-num" style="color: #ff6600;"><span class="yan">￥</span>{{statistics.addUpPromoteFee}}</h2>
+          <h2 class="card-num" style="color: #00cc66;">{{statistics.addUpBuyUser}}</h2>
+          <h3 class="card-title">总的购卡用户数</h3>
+        </div>
+        <div class="card-item">
+          <h2 class="card-num" style="color: #ff9900;"><span class="yan">￥</span>{{statistics.addUpPromoteFee}}</h2>
           <h3 class="card-title">总推广分成金额</h3>
+        </div>
+        <!-- xx -->
+        <div class="card-item">
+          <h2 class="card-num" style="color: #ff6600;"><span class="yan">￥</span>{{statistics.shareFeeByMon}}</h2>
+          <h3 class="card-title">月结待分成金额</h3>
         </div>
       </div>
     </Card>
@@ -34,9 +49,12 @@ export default {
     return {
       statistics: {
         todayPromoteUser: '-',
+        todayBuyUser: '-',
         todayPromoteFee: '-',
         addUpPromoteUser: '-',
-        addUpPromoteFee: '-'
+        addUpBuyUser: '-',
+        addUpPromoteFee: '-',
+        shareFeeByMon: '-'
       }
     };
   },
@@ -48,11 +66,14 @@ export default {
       API_statistics.query()
         .then(data => {
           // console.log('data', data)
-          const { todayPromoteUser, todayPromoteFee, addUpPromoteUser, addUpPromoteFee } = data
+          const { todayPromoteUser, todayPromoteFee, addUpPromoteUser, addUpPromoteFee, todayBuyUser, addUpBuyUser, shareFeeByMon } = data
           this.statistics.todayPromoteUser = todayPromoteUser || 0
+          this.statistics.todayBuyUser = todayBuyUser || 0
           this.statistics.todayPromoteFee = changeFee(todayPromoteFee)
           this.statistics.addUpPromoteUser = addUpPromoteUser || 0
+          this.statistics.addUpBuyUser = addUpBuyUser || 0
           this.statistics.addUpPromoteFee = changeFee(addUpPromoteFee)
+          this.statistics.shareFeeByMon = changeFee(shareFeeByMon)
         })
     },
     change(pageNo) {
@@ -79,8 +100,11 @@ export default {
 }
 .card-num {
   color: #3399ff;
-  height: 42px;
-  font-size: 28px;
+  height: 40px;
+  font-size: 24px;
+}
+.card-title {
+  font-size: 15px;
 }
 </style>
 

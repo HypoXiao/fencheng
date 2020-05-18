@@ -22,6 +22,9 @@
 import { API_user } from "../model/user"
 import { mapState } from "vuex"
 
+// daxiongjiang
+// 2020#0618LPs
+
 export default {
   data() {
     return {

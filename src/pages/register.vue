@@ -41,7 +41,6 @@ export default {
       API_register.query(this.page)
         .then(data => {
           this.loading = false
-          // console.log('data', data)
           const { total, list } = data
           this.total = total
           this.list = list

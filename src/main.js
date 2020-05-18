@@ -46,7 +46,6 @@ router.beforeEach((to, from, next) => {
       next()
     }
   } else if (to.meta.loginPage) {
-    console.log('xxx11111x')
     if (username) {
       next('/')
     } else {
